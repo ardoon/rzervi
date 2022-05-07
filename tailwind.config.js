@@ -17,8 +17,19 @@ module.exports = {
             spacing: {
                 '1/4%': '25%',
                 '1/3%': '33.333333%',
-            }
+            },
+            zIndex: {
+                "-1": "-1",
+                "-2": "-2",
+            },
+            transformOrigin: {
+                "0": "0%",
+            },
         },
+    },
+
+    variants: {
+        borderColor: ['responsive', 'hover', 'focus', 'focus-within'],
     },
 
     plugins: [require('@tailwindcss/forms')],

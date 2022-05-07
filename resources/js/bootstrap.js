@@ -24,7 +24,7 @@ window.Pusher = require('pusher-js');
 
 window.Echo = new Echo({
     broadcaster: 'pusher',
-    key: 'UHh&jDmD4MVy',
+    key: 'radSmUSIMagN',
     forceTLS: true,
     wsHost: 'rezervi.iran.liara.run',
     wsPort: 443,

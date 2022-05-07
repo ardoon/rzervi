@@ -1,11 +1,5 @@
 <script setup>
-import BreezeButton from '@/Components/Button.vue';
-import BreezeCheckbox from '@/Components/Checkbox.vue';
-import BreezeGuestLayout from '@/Layouts/Guest.vue';
-import BreezeInput from '@/Components/Input.vue';
-import BreezeLabel from '@/Components/Label.vue';
-import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
-import { Head, Link, useForm } from '@inertiajs/inertia-vue3';
+import {Head, Link, useForm} from '@inertiajs/inertia-vue3';
 
 defineProps({
     canResetPassword: Boolean,
@@ -26,42 +20,44 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
-        <Head title="Log in" />
+    <Head title="Log in"/>
+    <div class="w-full md:w-96 px-10 py-12 mx-auto text-gray-700 mt-0 md:mt-5">
 
-        <BreezeValidationErrors class="mb-4" />
+        <h1 class="text-3xl text-center">به <span class="text-5xl font-bold text-blue-500">رزروی</span> خوش آمدید!</h1>
+        <p class="text-center mt-4">پلتفرم آنلاین مدیریت و رزرو نوبت آرایشگاه</p>
 
-        <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
-            {{ status }}
-        </div>
+<!--        <p class="text-3xl text-center mt-6 flex items-end justify-center">-->
+<!--            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">-->
+<!--                <path stroke-linecap="round" stroke-linejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />-->
+<!--            </svg>-->
+<!--            ورود-->
+<!--        </p>-->
 
-        <form @submit.prevent="submit">
-            <div>
-                <BreezeLabel for="username" value="Username" />
-                <BreezeInput id="username" type="text" class="mt-1 block w-full" v-model="form.username" required autofocus autocomplete="username" />
+        <form class="mt-16" @submit.prevent="submit">
+            <div class="relative my-4 border-b-2 focus-within:border-blue-500 mb-10">
+                <input type="text" id="username" name="username" v-model="form.username" placeholder=" " class="border-0 block w-full appearance-none focus:outline-none focus:ring-0 bg-transparent" />
+                <label for="username" class="absolute top-2.5 -z-1 origin-0 duration-300">شماره موبایل</label>
             </div>
 
-            <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
-                <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+            <div class="relative my-4 border-b-2 focus-within:border-blue-500">
+                <input type="password" id="password" name="password" v-model="form.password" placeholder=" " class="border-0 block w-full appearance-none focus:outline-none focus:ring-0 bg-transparent" />
+                <label for="password" class="absolute top-2.5 -z-1 origin-0 duration-300">گذرواژه</label>
             </div>
 
-            <div class="block mt-4">
-                <label class="flex items-center">
-                    <BreezeCheckbox name="remember" v-model:checked="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
+            <div class="mt-8 mb-4">
+                <input style="border-radius: 4px;" type="checkbox" id="remember" name="remember" v-model="form.remember" placeholder=" " class="focus:ring-0 rounded-sm"/>
+                <label for="remember" class="mr-2">مرا به خاطر بسپار</label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
-                </Link>
+            <Link href="" class="text-blue-700">بازیابی گذرواژه</Link>
 
-                <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Log in
-                </BreezeButton>
+            <div class="mt-6 mb-6">
+                <button class="w-full bg-gray-900 text-white pt-1 pb-2 rounded-lg text-lg font-light hover:bg-gray-800">ورود</button>
             </div>
+
+            اکانت ندارید؟<Link href="" class="text-blue-700"> ثبت نام کنید</Link>
         </form>
-    </BreezeGuestLayout>
+
+    </div>
+
 </template>

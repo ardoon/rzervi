@@ -62,3 +62,17 @@
     font-weight: 100;
     font-style: normal;
 }
+
+input:focus-within ~ label {
+    @apply transform scale-75 -translate-y-6 text-blue-500;
+}
+
+input:focus-within ~ label,
+input:not(:placeholder-shown) ~ label {
+    @apply transform scale-90 -translate-y-8;
+}
+
+input:focus-within ~ label {
+    @apply text-rose-500;
+}
+
