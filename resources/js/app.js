@@ -32,6 +32,3 @@ if ('serviceWorker' in navigator) {
     console.log('Service Worker is not supported.')
 }
 
-Vue.config.devtools = true
-Vue.config.debug = true
-
