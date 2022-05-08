@@ -1,7 +1,7 @@
 {
     "disks": [
         {
-            "name": "data",
+            "name": "rzervi",
             "mountTo": "storage"
         }
     ]
