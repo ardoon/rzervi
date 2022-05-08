@@ -24,11 +24,14 @@ if ('serviceWorker' in navigator) {
     navigator
         .serviceWorker
         .register('/serviceworker.js').then(registration => {
-        console.log('serviceworker registered!', registration)
+        console.log('serviceworker registered!')
     }).catch(err => {
         console.log('serviceworker not registered!', err)
     })
 } else {
     console.log('Service Worker is not supported.')
 }
+
+Vue.config.devtools = true
+Vue.config.debug = true
 
