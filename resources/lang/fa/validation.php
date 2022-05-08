@@ -159,6 +159,7 @@ return [
     */
 
     'attributes' => [
+        'username' => 'نام کاربری',
         'first_name' => 'نام',
         'last_name' => ' نام خانوادگی',
         'email' => 'ایمیل',

@@ -26,11 +26,15 @@ class ServerController extends Controller
 
         if ($user->gender === 'male') {
 
-            $providers = Provider::where('type', 'پیرایش مردانه')->get();
+            $providers = Provider::where('type', '=', 'پیرایش مردانه')->whereDoesntHave("customers", function($subQuery) use($user){
+                $subQuery->where("user_id", "=", $user->id);
+            })->get();
 
         } else {
 
-            $providers = Provider::where('type', '!=', 'پیرایش مردانه')->get();
+            $providers = Provider::where('type', '!=', 'پیرایش مردانه')->whereDoesntHave("customers", function($subQuery) use($user){
+                $subQuery->where("user_id", "=", $user->id);
+            })->get();
 
         }
 

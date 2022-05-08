@@ -139,7 +139,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                     </svg>
                     داشبورد
                 </Link>
-                <Link @click="drawer = false" v-if="user.type == 'admin'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/admin/users'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/admin/users')}" :href="route('admin.users')"
+                <Link @click="drawer = false" v-if="user.type == 'admin'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/admin/users'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/admin/users')}" :href="route('admin.users')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -148,7 +148,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                     </svg>
                     کاربران
                 </Link>
-                <Link @click="drawer = false" v-if="user.type == 'admin'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/admin/services'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/admin/services')}" :href="route('admin.services')"
+                <Link @click="drawer = false" v-if="user.type == 'admin'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/admin/services'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/admin/services')}" :href="route('admin.services')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +157,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                     </svg>
                     سرویس ها
                 </Link>
-                <Link @click="drawer = false" v-if="user.type == 'admin'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/admin/providers'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/admin/providers')}" :href="route('admin.providers')"
+                <Link @click="drawer = false" v-if="user.type == 'admin'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/admin/providers'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/admin/providers')}" :href="route('admin.providers')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +168,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                 </Link>
 
                 <!--        Providers' Menu Items        -->
-                <Link @click="drawer = false" v-if="user.type == 'provider'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/provider/users'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/provider/users')}" :href="route('provider.users')"
+                <Link @click="drawer = false" v-if="user.type == 'provider'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/provider/users'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/provider/users')}" :href="route('provider.users')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -177,7 +177,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                     </svg>
                     مشتریان
                 </Link>
-                <Link @click="drawer = false" v-if="user.type == 'provider'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/provider/services'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/provider/services')}" :href="route('provider.services')"
+                <Link @click="drawer = false" v-if="user.type == 'provider'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/provider/services'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/provider/services')}" :href="route('provider.services')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +186,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                     </svg>
                     خدمات
                 </Link>
-                <Link @click="drawer = false" v-if="user.type == 'provider'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/provider/requests'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/provider/requests')}" :href="route('provider.requests')"
+                <Link @click="drawer = false" v-if="user.type == 'provider'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/provider/requests'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/provider/requests')}" :href="route('provider.requests')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -199,7 +199,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
 
 
                 <!--        Customers Menu Items        -->
-                <Link @click="drawer = false" v-if="user.type == 'customer'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/customer/servers'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/customer/servers')}" :href="route('customer.servers')"
+                <Link @click="drawer = false" v-if="user.type == 'customer'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/customer/servers'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/customer/servers')}" :href="route('customer.servers')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -208,7 +208,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                     </svg>
                     خدمت دهندگان
                 </Link>
-                <Link @click="drawer = false" v-if="user.type == 'customer'" :class="{'flex items-center cursor-default text-white p-2 bg-indigo-500 w-full rounded-xl': $page.url.includes('/customer/requests'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/customer/requests')}" :href="route('customer.requests')"
+                <Link @click="drawer = false" v-if="user.type == 'customer'" :class="{'flex items-center cursor-default text-white p-2 bg-gray-900 w-full rounded-xl': $page.url.includes('/customer/requests'),'flex items-center cursor-pointer text-slate-600 p-2 hover:text-indigo-500': !$page.url.includes('/customer/requests')}" :href="route('customer.requests')"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"
                          viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

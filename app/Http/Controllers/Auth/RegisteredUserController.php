@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Provider;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -19,9 +20,18 @@ class RegisteredUserController extends Controller
      *
      * @return \Inertia\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return Inertia::render('Auth/Register');
+
+        $provider = '';
+
+        if ($request->has('provider')) {
+            $provider = $request->provider;
+        }
+
+        return Inertia::render('Auth/Register', [
+            'provider' => $provider
+        ]);
     }
 
     /**
@@ -35,16 +45,32 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'gender' => 'required|in:male,female',
+            'phone' => 'required|string|max:255|unique:users',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'provider_slug' => 'nullable|string'
         ]);
 
         $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'gender' => $request->gender,
+            'phone' => $request->phone,
             'password' => Hash::make($request->password),
         ]);
+
+        if ($request->provider_slug != null || $request->provider_slug != '') {
+
+            $provider = Provider::where('slug', $request->provider_slug)->first();
+
+            if($provider) {
+                $user->servers()->attach($provider->id);
+            }
+
+        }
+
 
         event(new Registered($user));
 

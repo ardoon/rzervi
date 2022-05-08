@@ -1,5 +1,6 @@
 <script setup>
 import {Head, Link, useForm} from '@inertiajs/inertia-vue3';
+import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 
 defineProps({
     canResetPassword: Boolean,
@@ -21,7 +22,7 @@ const submit = () => {
 
 <template>
     <Head title="Log in"/>
-    <div class="w-full md:w-96 px-10 py-12 mx-auto text-gray-700 mt-0 md:mt-5">
+    <div class="w-full md:w-96 px-10 pt-12 mx-auto text-gray-700">
 
         <h1 class="text-3xl text-center">به <span class="text-5xl font-bold text-blue-500">رزروی</span> خوش آمدید!</h1>
         <p class="text-center mt-4">پلتفرم آنلاین مدیریت و رزرو نوبت آرایشگاه</p>
@@ -33,8 +34,12 @@ const submit = () => {
 <!--            ورود-->
 <!--        </p>-->
 
+
         <form class="mt-16" @submit.prevent="submit">
-            <div class="relative my-4 border-b-2 focus-within:border-blue-500 mb-10">
+
+            <BreezeValidationErrors class="mb-8" />
+
+            <div class="relative mt-4 border-b-2 focus-within:border-blue-500 mb-10">
                 <input type="text" id="username" name="username" v-model="form.username" placeholder=" " class="border-0 block w-full appearance-none focus:outline-none focus:ring-0 bg-transparent" />
                 <label for="username" class="absolute top-2.5 -z-1 origin-0 duration-300">شماره موبایل</label>
             </div>
@@ -49,13 +54,13 @@ const submit = () => {
                 <label for="remember" class="mr-2">مرا به خاطر بسپار</label>
             </div>
 
-            <Link href="" class="text-blue-700">بازیابی گذرواژه</Link>
+            <Link :href="route('password.request')" class="text-blue-700" v-if="canResetPassword">بازیابی گذرواژه</Link>
 
             <div class="mt-6 mb-6">
-                <button class="w-full bg-gray-900 text-white pt-1 pb-2 rounded-lg text-lg font-light hover:bg-gray-800">ورود</button>
+                <button class="w-full bg-gray-900 text-white pt-1 pb-2 rounded-lg text-lg font-light hover:bg-gray-800" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">ورود</button>
             </div>
 
-            اکانت ندارید؟<Link href="" class="text-blue-700"> ثبت نام کنید</Link>
+            اکانت ندارید؟<Link :href="route('register')" class="text-blue-700"> ثبت نام کنید</Link>
         </form>
 
     </div>
