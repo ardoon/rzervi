@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ProviderController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Auth\VerifyPhoneController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\UserController as userCtrl;
 use App\Http\Controllers\Customer\RequestController;
@@ -31,10 +32,27 @@ Route::get('/', function () {
     return redirect('/login');
 })->middleware(['guest']);
 
+Route::get('/sms', function (){
+    $sms = new \App\Services\Sms(
+        '09185335318',
+        'welcome',
+        [
+            'آران',
+            '54789'
+        ]
+    );
+
+    dd($sms->send());
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified', 'verifyPhone'])->name('dashboard');
 
+// Verify Phone Number
+Route::get('/verify/phone', [VerifyPhoneController::class, 'create'])->middleware(['auth', 'verified'])->name('verify.phone');
+
+Route::post('/verify/phone', [VerifyPhoneController::class, 'store'])->middleware(['auth', 'verified'])->name('verify.phone');
 
 Route::get('/setting', function () {
     return Inertia::render('Setting', [
@@ -42,15 +60,15 @@ Route::get('/setting', function () {
     ]);
 })->middleware(['auth', 'verified'])->name('setting');
 
-Route::put('/setting/{user}', [userCtrl::class, 'update']);
+Route::put('/setting/{user}', [userCtrl::class, 'update'])->middleware(['auth', 'verified']);
 
-Route::get('/media/{user}/{type}', [MediaController::class, 'show']);
+Route::get('/media/{user}/{type}', [MediaController::class, 'show'])->middleware(['auth', 'verified']);
 Route::post('/media', [MediaController::class, 'store']);
-Route::delete('/media/{user}/{type}', [MediaController::class, 'destroy']);
+Route::delete('/media/{user}/{type}', [MediaController::class, 'destroy'])->middleware(['auth', 'verified']);
 
 //  :::::::::::::::::::::::::::: ADMIN PANEL ::::::::::::::::::::::::::::
 
-Route::middleware(['auth', 'verified', 'can:admin'])->prefix('/admin')->group(function () {
+Route::middleware(['auth', 'verified', 'verifyPhone', 'can:admin'])->prefix('/admin')->group(function () {
 
     Route::prefix('/users')->group(function () {
 
@@ -89,7 +107,7 @@ Route::middleware(['auth', 'verified', 'can:admin'])->prefix('/admin')->group(fu
 
 //  :::::::::::::::::::::::::::: Provider PANEL ::::::::::::::::::::::::::::
 
-Route::middleware(['auth', 'verified', 'can:provider'])->prefix('/provider')->group(function () {
+Route::middleware(['auth', 'verified', 'verifyPhone', 'can:provider'])->prefix('/provider')->group(function () {
 
     Route::prefix('/users')->group(function () {
 
@@ -125,7 +143,7 @@ Route::middleware(['auth', 'verified', 'can:provider'])->prefix('/provider')->gr
 });
 
 //  :::::::::::::::::::::::::::: Customer PANEL ::::::::::::::::::::::::::::
-Route::middleware(['auth', 'verified', 'can:customer'])->prefix('/customer')->group(function () {
+Route::middleware(['auth', 'verified', 'verifyPhone', 'can:customer'])->prefix('/customer')->group(function () {
 
     Route::prefix('/requests')->group(function () {
 

@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->enum('gender', ['male', 'female'])->default('male');
             $table->enum('type', ['admin', 'provider', 'customer'])->default('customer');
             $table->string('phone')->unique();
+            $table->timestamp('phone_verified_at')->nullable();
             $table->string('email')->unique()->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

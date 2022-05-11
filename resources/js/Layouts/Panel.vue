@@ -14,7 +14,7 @@ export default {
         return {
             drawer: false,
             windowWidth: window.innerWidth,
-            avatar: ''
+            avatar: '',
         }
     },
     computed: {
@@ -31,6 +31,14 @@ export default {
                 });
         }
     },
+    methods: {
+      getNotificationPermissionState: async() => {
+          if (navigator.permissions) {
+              let result = await navigator.permissions.query({name: 'notifications'})
+              return result.state
+          }
+      }
+    },
     mounted() {
         window.onresize = () => {
             this.windowWidth = window.innerWidth
@@ -41,6 +49,10 @@ export default {
         this.avatar = this.getAvatar
     }
 }
+// if ('serviceWorker' in navigator) {
+//     Notification.requestPermission()
+//         .then(result => console.log(result))
+// }
 </script>
 
 <template>
@@ -105,6 +117,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
 -10 -4 4 142 531 167 602 2 8 54 11 177 10 163 -2 176 -3 222 -27z"/>
                 </g>
             </svg>
+<!--            <button v-on:click="getNotificationPermissionState">get notification permission</button>-->
         </header>
 
         <!--      MAIN MENU      -->

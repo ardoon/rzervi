@@ -28,7 +28,10 @@ if ('serviceWorker' in navigator) {
     }).catch(err => {
         console.log('serviceworker not registered!', err)
     })
+
 } else {
     console.log('Service Worker is not supported.')
 }
+
+
 
