@@ -188,3 +188,27 @@ export default {
         </form>
     </PanelLayout>
 </template>
+
+<style>
+.vue-image-crop-upload .vicp-wrap{
+    width: 410px;
+    border-radius: 18px;
+}
+
+.vicp-img{
+    max-width: unset;
+}
+
+@media only screen and (max-width: 520px) {
+    .vue-image-crop-upload .vicp-wrap{
+        width: 310px;
+        height: 470px;
+        border-radius: 18px;
+    }
+
+    .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-hint {
+        padding: 0px;
+    }
+}
+
+</style>
