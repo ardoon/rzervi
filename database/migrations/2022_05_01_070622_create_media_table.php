@@ -17,7 +17,7 @@ class CreateMediaTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('path');
-            $table->enum('type', ['avatar'])->default('avatar');
+            $table->enum('type', ['avatar','provider'])->default('avatar');
             $table->foreignId('user_id');
             $table->timestamps();
         });

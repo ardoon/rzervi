@@ -18,6 +18,8 @@ class Provider extends Model
         'address',
     ];
 
+    protected $with = ['avatar'];
+
     public function users()
     {
         return $this->hasMany(User::class);
@@ -36,6 +38,16 @@ class Provider extends Model
     public function requests()
     {
         return $this->hasMany(Request::class, 'responder')->with('requester');
+    }
+
+    public function media()
+    {
+        return $this->hasMany(Media::class, 'user_id');
+    }
+
+    public function avatar()
+    {
+        return $this->media()->where('type', '=', 'provider');
     }
 
 }

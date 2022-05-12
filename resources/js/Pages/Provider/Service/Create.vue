@@ -39,7 +39,7 @@ export default {
         <form @submit.prevent="submit" class="flex flex-wrap space-y-4 lg:space-y-2 text-slate-700" autocomplete="off">
 
             <div class="w-full lg:w-1/2 mt-2">
-                <label for="gender" class="text-lg block mb-3">نوع خدمت</label>
+                <label for="gender" class="text-lg block mb-3">خدمت <small>(ضروری)</small></label>
                 <select v-model="form.service_id" type="text" id="gender"
                         class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300 pt-1">
                     <option class="text-base" value="-1" disabled>انتخاب کنید</option>

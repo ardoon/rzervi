@@ -18,7 +18,18 @@ class MediaController extends Controller
 
         if($request->type === 'avatar') {
             $avatars = Media::where('type', 'avatar')->where('user_id', Auth::id())->get();
+            $user_id = Auth::id();
+            if (count($avatars) != 0) {
+                foreach ($avatars as $avatar) {
+                    Storage::delete($avatar->path);
+                    $avatar->delete();
+                }
+            }
+        }
 
+        if($request->type === 'provider') {
+            $avatars = Media::where('type', 'provider')->where('user_id', $request->user_id)->get();
+            $user_id = $request->user_id;
             if (count($avatars) != 0) {
                 foreach ($avatars as $avatar) {
                     Storage::delete($avatar->path);
@@ -33,7 +44,7 @@ class MediaController extends Controller
             'name' =>  $request->name,
             'type' => $request->type,
             'path' => $path,
-            'user_id' =>  Auth::id()
+            'user_id' => $user_id
         ]);
 
         return true;

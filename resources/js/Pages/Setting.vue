@@ -6,7 +6,6 @@ let form = useForm({
     first_name: usePage().props.value.auth.user.first_name,
     last_name: usePage().props.value.auth.user.last_name,
     type: usePage().props.value.auth.user.type,
-    email: usePage().props.value.auth.user.email,
     phone: usePage().props.value.auth.user.phone,
     password: '',
     password_confirmation: '',
@@ -31,7 +30,7 @@ export default {
     },
     data() {
         return {
-            show: false,
+            showUploader: false,
             params: {
                 _token: this.csrf,
                 name: 'avatar-' + usePage().props.value.auth.user.phone,
@@ -48,7 +47,7 @@ export default {
     },
     methods: {
         toggleShow() {
-            this.show = !this.show;
+            this.showUploader = !this.showUploader;
         },
         cropSuccess(imgDataUrl, field) {
             this.imgDataUrl = imgDataUrl;
@@ -87,15 +86,16 @@ export default {
             </Link>
 
         </div>
-        <my-upload v-model="show"
+        <my-upload v-model="showUploader"
                    :headers="headers"
-                   :height="300"
+                   :height="100"
                    :params="params"
-                   :width="300"
+                   :width="100"
                    field="img"
                    img-format="png"
                    lang-type="fa"
                    url="/media"
+                   noCircle="false"
                    @crop-success="cropSuccess"
                    @crop-upload-success="cropUploadSuccess"
                    @crop-upload-fail="cropUploadFail"></my-upload>
@@ -121,17 +121,20 @@ export default {
                      v-text="form.errors.last_name"></div>
             </div>
             <div class="w-full lg:w-1/2">
-                <label class="text-lg block mb-3" for="email">ایمیل</label>
-                <input id="email" v-model="form.email"
-                       class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300"
-                       type="text">
-                <div v-if="form.errors.email" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"
-                     v-text="form.errors.email"></div>
+                <label class="text-lg block mb-3" for="gender">جنسیت</label>
+                <select id="gender" v-model="form.gender"
+                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300 pt-1"
+                        type="text">
+                    <option class="text-base" value="male">مرد</option>
+                    <option class="text-base" value="female">زن</option>
+                </select>
+                <div v-if="form.errors.gender" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"
+                     v-text="form.errors.gender"></div>
             </div>
             <div class="w-full lg:w-1/2">
                 <label class="text-lg block mb-3" for="phone">شماره همراه</label>
-                <input id="phone" v-model="form.phone"
-                       class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300"
+                <input id="phone" v-model="form.phone" disabled="disabled"
+                       class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-200 border-2 border-gray-300"
                        type="text">
                 <div v-if="form.errors.phone" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"
                      v-text="form.errors.phone"></div>
@@ -154,17 +157,7 @@ export default {
                      v-text="form.errors.password_confirmation"></div>
             </div>
 
-            <div class="w-full lg:w-1/2">
-                <label class="text-lg block mb-3" for="gender">جنسیت</label>
-                <select id="gender" v-model="form.gender"
-                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300 pt-1"
-                        type="text">
-                    <option class="text-base" value="male">مرد</option>
-                    <option class="text-base" value="female">زن</option>
-                </select>
-                <div v-if="form.errors.gender" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"
-                     v-text="form.errors.gender"></div>
-            </div>
+
             <div class="pt-6 w-full flex">
                 <button :disabled="form.processing"
                         class="cursor-pointer block text-white py-2 px-6 bg-indigo-500 hover:bg-indigo-600 rounded-xl disabled:bg-slate-300 disabled:cursor-default"
@@ -177,3 +170,23 @@ export default {
 
     </PanelLayout>
 </template>
+
+<style>
+.vue-image-crop-upload .vicp-wrap{
+    width: 410px;
+    border-radius: 18px;
+}
+
+@media only screen and (max-width: 520px) {
+    .vue-image-crop-upload .vicp-wrap{
+        width: 310px;
+        height: 470px;
+        border-radius: 18px;
+    }
+
+    .vue-image-crop-upload .vicp-wrap .vicp-step1 .vicp-drop-area .vicp-hint {
+        padding: 0px;
+    }
+}
+
+</style>

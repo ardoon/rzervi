@@ -17,8 +17,8 @@ class CreateProviderServiceTable extends Migration
             $table->id();
             $table->foreignId('provider_id');
             $table->foreignId('service_id');
-            $table->string('price');
-            $table->text('description');
+            $table->string('price')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

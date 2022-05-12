@@ -40,6 +40,7 @@ export default {
             بازگشت
         </Link>
     </header>
+
     <form autocomplete="off" class="flex flex-wrap space-y-4 lg:space-y-2 text-slate-700" @submit.prevent="submit">
         <div class="w-full lg:w-1/2 mt-2">
             <label class="text-lg block mb-3" for="title">عنوان</label>

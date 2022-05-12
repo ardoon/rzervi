@@ -43,11 +43,15 @@ class ServiceController extends Controller
 
         if ($provider->type === 'پیرایش مردانه') {
 
-            $services = Service::where('gender', '!=', 'female')->get();
+            $services = Service::where('gender', '!=', 'female')->whereDoesntHave("providers", function($subQuery) use($provider){
+                $subQuery->where("provider_id", "=", $provider->id);
+            })->get();
 
         } else {
 
-            $services = Service::where('gender', '!=', 'male')->get();
+            $services = Service::where('gender', '!=', 'male')->whereDoesntHave("providers", function($subQuery) use($provider){
+                $subQuery->where("provider_id", "=", $provider->id);
+            })->get();
 
         }
 
@@ -75,8 +79,8 @@ class ServiceController extends Controller
     {
         $attributes = Request::validate([
             'service_id' => 'required',
-            'price' => 'required',
-            'description' => 'required',
+            'price' => 'nullable',
+            'description' => 'nullable',
         ]);
 
         $provider = auth()->user()->provider;
@@ -89,17 +93,24 @@ class ServiceController extends Controller
     public function edit($service_id)
     {
 
+        $service = Service::where('id', $service_id)->first();
         $provider = auth()->user()->provider;
 
         if ($provider->type === 'پیرایش مردانه') {
 
-            $services = Service::where('gender', '!=', 'female')->get();
+            $services = Service::where('gender', '!=', 'female')->whereDoesntHave("providers", function($subQuery) use($provider){
+                $subQuery->where("provider_id", "=", $provider->id);
+            })->get();
 
         } else {
 
-            $services = Service::where('gender', '!=', 'male')->get();
+            $services = Service::where('gender', '!=', 'male')->whereDoesntHave("providers", function($subQuery) use($provider){
+                $subQuery->where("provider_id", "=", $provider->id);
+            })->get();
 
         }
+
+        $services->push($service);
 
         foreach ($services as $srv) {
             switch ($srv->gender) {
@@ -127,8 +138,8 @@ class ServiceController extends Controller
     {
         $attributes = Request::validate([
             'service_id' => 'required',
-            'price' => 'required',
-            'description' => 'required',
+            'price' => 'nullable',
+            'description' => 'nullable',
         ]);
 
         $provider = auth()->user()->provider;
@@ -140,7 +151,7 @@ class ServiceController extends Controller
         $provider->services->where('id', $service_id)->first()->pivot->save();
 
 
-        return redirect('/provider/services/' . $attributes['service_id'] . '/edit');
+        return redirect('/provider/services/');
     }
 
     public function destroy($service_id)

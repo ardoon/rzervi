@@ -84,8 +84,8 @@ export default {
                             <tr v-for="request in requests">
                                 <td class="px-6 py-4 whitespace-nowrap">
                                     <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10">
-                                            <img class="h-10 w-10 rounded-xl" :src="'https://i.pravatar.cc/50?u=' + request.responder">
+                                        <div class="flex-shrink-0 h-10 w-10" v-for="img in request.responder.avatar">
+                                            <img class="h-10 w-10 rounded-xl" :src="img.path" alt="">
                                         </div>
                                         <div class="mr-4">
                                             <div class="text-sm font-medium text-gray-900">{{ request.responder.title }}</div>

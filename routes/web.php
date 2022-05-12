@@ -32,19 +32,6 @@ Route::get('/', function () {
     return redirect('/login');
 })->middleware(['guest']);
 
-Route::get('/sms', function (){
-    $sms = new \App\Services\Sms(
-        '09185335318',
-        'welcome',
-        [
-            'آران',
-            '54789'
-        ]
-    );
-
-    dd($sms->send());
-});
-
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified', 'verifyPhone'])->name('dashboard');

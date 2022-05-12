@@ -13,7 +13,7 @@ class ProviderController extends Controller
 
     public function index()
     {
-        $providers = Provider::all();
+        $providers = Provider::all()->load('avatar');
 
         return Inertia::render('Admin/Provider/Index', [
             'providers' => $providers
@@ -22,7 +22,7 @@ class ProviderController extends Controller
 
     public function create()
     {
-        $users = User::all();
+        $users = User::where('provider_id', '!=', NULL)->get();
         return Inertia::render('Admin/Provider/Create',['users' => $users]);
     }
 
@@ -55,11 +55,12 @@ class ProviderController extends Controller
         $user = $provider->users()->first();
         $provider->user_id = $user->id;
 
-        $users = User::all();
+        $users = User::where('provider_id', '!=', NULL)->get();
 
         return Inertia::render('Admin/Provider/Edit', [
             'current_provider' => $provider,
             'users' => $users,
+            'csrf' => csrf_token()
         ]);
     }
 
