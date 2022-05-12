@@ -86,7 +86,7 @@ export default {
             </Link>
 
         </div>
-        <my-upload v-model="showUploader"
+        <my-upload :value="showUploader"
                    :headers="headers"
                    :height="100"
                    :params="params"
@@ -175,6 +175,10 @@ export default {
 .vue-image-crop-upload .vicp-wrap{
     width: 410px;
     border-radius: 18px;
+}
+
+.vicp-img{
+    max-width: unset;
 }
 
 @media only screen and (max-width: 520px) {
