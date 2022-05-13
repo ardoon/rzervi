@@ -47,7 +47,7 @@ export default {
     },
     methods: {
         toggleShow() {
-            this.showUploader = !this.showUploader;
+            this.showUploader = true;
         },
         cropSuccess(imgDataUrl, field) {
             this.imgDataUrl = imgDataUrl;
@@ -86,7 +86,7 @@ export default {
             </Link>
 
         </div>
-        <my-upload :value="showUploader"
+        <my-upload :value.sync="showUploader"
                    :headers="headers"
                    :height="100"
                    :params="params"
