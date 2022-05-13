@@ -48,7 +48,7 @@ export default {
     },
     methods: {
         toggleShow() {
-            this.showUploader = !this.showUploader;
+            this.showUploader = true;
         },
         cropSuccess(imgDataUrl, field) {
             this.imgDataUrl = imgDataUrl;

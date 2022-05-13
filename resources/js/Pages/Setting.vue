@@ -86,7 +86,7 @@ export default {
             </Link>
 
         </div>
-        <my-upload :value.sync="showUploader"
+        <my-upload v-model="showUploader"
                    :headers="headers"
                    :height="100"
                    :params="params"
@@ -136,6 +136,7 @@ export default {
                 <input id="phone" v-model="form.phone" disabled="disabled"
                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-200 border-2 border-gray-300"
                        type="text">
+                <div>تغییر</div>
                 <div v-if="form.errors.phone" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"
                      v-text="form.errors.phone"></div>
             </div>
