@@ -43,17 +43,6 @@ export default {
             imgDataUrl: ''
         }
     },
-    computed: {
-        show: {
-            get () {
-                return this.showUploader
-            },
-
-            set (value) {
-                this.showUploader = !value
-            }
-        }
-    },
     components: {
         'my-upload': myUpload
     },
@@ -99,7 +88,7 @@ export default {
 
         </div>
 
-        <my-upload v-model="show"
+        <my-upload v-model="showUploader"
                    :headers="headers"
                    :height="100"
                    :params="params"

@@ -59,7 +59,8 @@ export default {
                 if (response.data != '')
                     this.imgDataUrl = response.data
             });
-    }
+            this.timerCount = this.time
+    },
 }
 
 </script>
