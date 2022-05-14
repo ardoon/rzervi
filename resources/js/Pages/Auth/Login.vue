@@ -39,6 +39,10 @@ const submit = () => {
 
             <BreezeValidationErrors class="mb-8" />
 
+            <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
+                {{ status }}
+            </div>
+
             <div class="relative mt-4 border-b-2 focus-within:border-blue-500 mb-10">
                 <input type="text" id="username" name="username" v-model="form.username" placeholder=" " class="border-0 block w-full appearance-none focus:outline-none focus:ring-0 bg-transparent" />
                 <label for="username" class="absolute top-2.5 -z-1 origin-0 duration-300">شماره موبایل</label>

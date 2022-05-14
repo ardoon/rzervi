@@ -88,19 +88,19 @@ export default {
 
         </div>
 
-        <my-upload v-model="showUploader"
-                   :headers="headers"
+        <my-upload :headers="headers"
                    :height="100"
                    :params="params"
                    :width="100"
                    field="img"
                    img-format="png"
                    lang-type="fa"
-                   noCircle="false"
+                   :noCircle="true"
                    url="/media"
                    @crop-success="cropSuccess"
-                   @crop-upload-success="cropUploadSuccess"
-                   @crop-upload-fail="cropUploadFail"></my-upload>
+                   :modelValue="showUploader"
+                   @update:modelValue="showUploader = !showUploader"
+        ></my-upload>
 
         <form autocomplete="off" class="flex flex-wrap space-y-4 lg:space-y-2 text-slate-700" @submit.prevent="submit">
             <div class="w-full lg:w-1/2 mt-2">

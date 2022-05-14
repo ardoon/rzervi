@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Str;
@@ -23,7 +26,7 @@ class NewPasswordController extends Controller
     public function create(Request $request)
     {
         return Inertia::render('Auth/ResetPassword', [
-            'email' => $request->email,
+            'phone' => $request->phone,
             'token' => $request->route('token'),
         ]);
     }
@@ -40,34 +43,28 @@ class NewPasswordController extends Controller
     {
         $request->validate([
             'token' => 'required',
-            'email' => 'required|email',
+            'phone' => 'required|numeric',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        // Here we will attempt to reset the user's password. If it is successful we
-        // will update the password on an actual user model and persist it to the
-        // database. Otherwise we will parse the error and return the response.
-        $status = Password::reset(
-            $request->only('email', 'password', 'password_confirmation', 'token'),
-            function ($user) use ($request) {
-                $user->forceFill([
-                    'password' => Hash::make($request->password),
-                    'remember_token' => Str::random(60),
-                ])->save();
+        $token = DB::table('password_resets')
+            ->where('phone', '=', $request->phone)
+            ->orderBy('created_at', 'desc')->first();
 
-                event(new PasswordReset($user));
+        if (!is_null($token)) {
+            $time = Carbon::parse($token->created_at);
+            if ((Carbon::now())->lt($time->addMinutes(15)) && ($token->token === $request->token) ) {
+                $user = User::where('phone', '=', $request->phone)->first();
+                $user->update([
+                    'password' => $request->password
+                ]);
+                DB::table('password_resets')->where('phone', '=', $request->phone)->delete();
+                return redirect()->route('login')->with('status','گذرواژه جدید ثبت شد!');
             }
-        );
-
-        // If the password was successfully reset, we will redirect the user back to
-        // the application's home authenticated view. If there is an error we can
-        // redirect them back to where they came from with their error message.
-        if ($status == Password::PASSWORD_RESET) {
-            return redirect()->route('login')->with('status', __($status));
         }
 
         throw ValidationException::withMessages([
-            'email' => [trans($status)],
+            'phone' => [trans('passwords.token')],
         ]);
     }
 }

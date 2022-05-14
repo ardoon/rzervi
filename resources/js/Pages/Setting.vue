@@ -95,11 +95,10 @@ export default {
                    img-format="png"
                    lang-type="fa"
                    url="/media"
-                   :noCircle="false"
+                   :noCircle="true"
                    @crop-success="cropSuccess"
                    :modelValue="showUploader"
                    @update:modelValue="showUploader = !showUploader"
-                   :withCredentials="true"
         ></my-upload>
 
 

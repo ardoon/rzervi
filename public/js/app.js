@@ -20277,11 +20277,11 @@ __webpack_require__.r(__webpack_exports__);
     var expose = _ref.expose;
     expose();
     var form = (0,_inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_5__.useForm)({
-      email: ''
+      phone: ''
     });
 
     var submit = function submit() {
-      form.post(route('password.email'));
+      form.post(route('password.phone'));
     };
 
     var __returned__ = {
@@ -21893,7 +21893,7 @@ var _hoisted_5 = /*#__PURE__*/_withScopeId(function () {
 
 var _hoisted_6 = [_hoisted_5];
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<svg version=\"1.0\" class=\"w-32 h-6\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1080.000000pt\" height=\"259.000000pt\" viewBox=\"0 0 1080.000000 259.000000\" preserveAspectRatio=\"xMidYMid meet\" data-v-30b5ca30><g transform=\"translate(0.000000,259.000000) scale(0.100000,-0.100000)\" fill=\"#000000\" stroke=\"none\" data-v-30b5ca30><path d=\"M9195 2152 l-150 -3 -390 -708 -390 -708 -3 438 -2 439 -250 0 -250\n0 0 -358 c0 -197 3 -487 7 -643 l6 -284 261 2 c285 3 365 11 441 50 64 32 76\n42 145 133 129 171 297 436 516 818 240 417 356 614 421 718 35 56 63 104 63\n108 0 6 -99 5 -425 -2z\" data-v-30b5ca30></path><path d=\"M3075 2135 c-245 -45 -417 -183 -568 -456 -61 -109 -43 -131 41 -51\n84 80 188 126 357 159 93 18 543 31 569 16 13 -7 -108 -121 -634 -593 l-650\n-585 -25 -80 c-14 -44 -36 -115 -49 -158 l-24 -77 808 0 808 0 51 153 c28 83\n51 155 51 159 0 4 -212 9 -471 10 l-470 3 548 496 c301 273 550 495 552 493 2\n-2 -4 -15 -13 -29 -19 -29 -48 -105 -40 -105 2 0 21 11 42 24 93 59 292 139\n308 124 2 -3 -10 -38 -26 -79 -228 -550 -255 -908 -85 -1138 26 -37 50 -55\n105 -80 119 -55 226 -72 450 -72 178 0 261 6 641 47 l56 6 62 221 c34 121 60\n221 58 223 -1 2 -20 -1 -42 -6 -91 -20 -320 -40 -460 -40 -196 0 -341 21 -374\n54 -35 35 -38 108 -9 216 20 72 27 85 48 91 14 4 171 7 350 8 l325 1 49 157\nc26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186\n108 221 l37 41 423 5 424 5 57 195 c31 107 60 205 63 217 l5 23 -517 -4 c-559\n-3 -646 -10 -843 -62 -99 -26 -243 -88 -297 -130 -17 -13 -34 -24 -36 -24 -3\n0 10 48 29 108 19 59 34 108 34 110 0 1 -255 2 -567 1 -419 -1 -586 -4 -638\n-14z\" data-v-30b5ca30></path><path d=\"M6456 2141 l-230 -6 -97 -325 c-54 -179 -176 -587 -272 -908 l-174\n-582 265 2 265 3 76 255 77 255 170 3 171 2 89 -260 89 -260 253 0 c138 0 252\n3 252 6 0 6 -165 519 -176 549 -3 8 20 31 58 56 217 147 351 370 388 646 16\n120 9 242 -19 315 -43 111 -164 197 -331 233 -85 19 -455 26 -854 16z m606\n-349 c35 -17 52 -34 67 -66 53 -109 -7 -323 -114 -411 -98 -80 -199 -108 -387\n-109 -75 -1 -139 1 -141 4 -5 4 146 542 167 596 5 14 28 15 183 12 162 -3 182\n-5 225 -26z\" data-v-30b5ca30></path><path d=\"M9891 2118 c-5 -18 -128 -422 -272 -898 -144 -476 -264 -871 -266\n-877 -4 -10 54 -13 270 -13 254 0 276 1 281 18 3 9 125 416 271 904 146 487\n265 889 265 892 0 3 -121 6 -269 6 l-269 0 -11 -32z\" data-v-30b5ca30></path><path d=\"M1140 2129 c-113 -5 -242 -8 -288 -6 l-83 3 -21 -70 c-12 -39 -135\n-449 -273 -911 l-251 -840 260 -3 c175 -1 262 1 266 8 4 6 40 123 81 260 l74\n250 172 0 172 0 19 -52 c10 -29 50 -144 88 -255 l69 -203 253 0 c138 0 252 3\n252 6 0 6 -166 521 -176 549 -3 6 24 29 59 52 238 156 379 422 394 739 8 161\n-13 236 -88 318 -130 142 -384 183 -979 155z m454 -349 c28 -14 59 -37 70 -52\n25 -35 32 -120 16 -200 -34 -174 -148 -283 -337 -323 -65 -14 -304 -21 -315\n-10 -4 4 142 531 167 602 2 8 54 11 177 10 163 -2 176 -3 222 -27z\" data-v-30b5ca30></path></g></svg>", 1);
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<svg version=\"1.0\" class=\"w-32 h-6\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1080.000000pt\" height=\"259.000000pt\" viewBox=\"0 0 1080.000000 259.000000\" preserveAspectRatio=\"xMidYMid meet\" data-v-30b5ca30><g transform=\"translate(0.000000,259.000000) scale(0.100000,-0.100000)\" fill=\"#000000\" stroke=\"none\" data-v-30b5ca30><path d=\"M9195 2152 l-150 -3 -390 -708 -390 -708 -3 438 -2 439 -250 0 -250\r\n0 0 -358 c0 -197 3 -487 7 -643 l6 -284 261 2 c285 3 365 11 441 50 64 32 76\r\n42 145 133 129 171 297 436 516 818 240 417 356 614 421 718 35 56 63 104 63\r\n108 0 6 -99 5 -425 -2z\" data-v-30b5ca30></path><path d=\"M3075 2135 c-245 -45 -417 -183 -568 -456 -61 -109 -43 -131 41 -51\r\n84 80 188 126 357 159 93 18 543 31 569 16 13 -7 -108 -121 -634 -593 l-650\r\n-585 -25 -80 c-14 -44 -36 -115 -49 -158 l-24 -77 808 0 808 0 51 153 c28 83\r\n51 155 51 159 0 4 -212 9 -471 10 l-470 3 548 496 c301 273 550 495 552 493 2\r\n-2 -4 -15 -13 -29 -19 -29 -48 -105 -40 -105 2 0 21 11 42 24 93 59 292 139\r\n308 124 2 -3 -10 -38 -26 -79 -228 -550 -255 -908 -85 -1138 26 -37 50 -55\r\n105 -80 119 -55 226 -72 450 -72 178 0 261 6 641 47 l56 6 62 221 c34 121 60\r\n221 58 223 -1 2 -20 -1 -42 -6 -91 -20 -320 -40 -460 -40 -196 0 -341 21 -374\r\n54 -35 35 -38 108 -9 216 20 72 27 85 48 91 14 4 171 7 350 8 l325 1 49 157\r\nc26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186\r\n108 221 l37 41 423 5 424 5 57 195 c31 107 60 205 63 217 l5 23 -517 -4 c-559\r\n-3 -646 -10 -843 -62 -99 -26 -243 -88 -297 -130 -17 -13 -34 -24 -36 -24 -3\r\n0 10 48 29 108 19 59 34 108 34 110 0 1 -255 2 -567 1 -419 -1 -586 -4 -638\r\n-14z\" data-v-30b5ca30></path><path d=\"M6456 2141 l-230 -6 -97 -325 c-54 -179 -176 -587 -272 -908 l-174\r\n-582 265 2 265 3 76 255 77 255 170 3 171 2 89 -260 89 -260 253 0 c138 0 252\r\n3 252 6 0 6 -165 519 -176 549 -3 8 20 31 58 56 217 147 351 370 388 646 16\r\n120 9 242 -19 315 -43 111 -164 197 -331 233 -85 19 -455 26 -854 16z m606\r\n-349 c35 -17 52 -34 67 -66 53 -109 -7 -323 -114 -411 -98 -80 -199 -108 -387\r\n-109 -75 -1 -139 1 -141 4 -5 4 146 542 167 596 5 14 28 15 183 12 162 -3 182\r\n-5 225 -26z\" data-v-30b5ca30></path><path d=\"M9891 2118 c-5 -18 -128 -422 -272 -898 -144 -476 -264 -871 -266\r\n-877 -4 -10 54 -13 270 -13 254 0 276 1 281 18 3 9 125 416 271 904 146 487\r\n265 889 265 892 0 3 -121 6 -269 6 l-269 0 -11 -32z\" data-v-30b5ca30></path><path d=\"M1140 2129 c-113 -5 -242 -8 -288 -6 l-83 3 -21 -70 c-12 -39 -135\r\n-449 -273 -911 l-251 -840 260 -3 c175 -1 262 1 266 8 4 6 40 123 81 260 l74\r\n250 172 0 172 0 19 -52 c10 -29 50 -144 88 -255 l69 -203 253 0 c138 0 252 3\r\n252 6 0 6 -166 521 -176 549 -3 6 24 29 59 52 238 156 379 422 394 739 8 161\r\n-13 236 -88 318 -130 142 -384 183 -979 155z m454 -349 c28 -14 59 -37 70 -52\r\n25 -35 32 -120 16 -200 -34 -174 -148 -283 -337 -323 -65 -14 -304 -21 -315\r\n-10 -4 4 142 531 167 602 2 8 54 11 177 10 163 -2 176 -3 222 -27z\" data-v-30b5ca30></path></g></svg>", 1);
 
 var _hoisted_8 = {
   "class": "flex items-center mb-10"
@@ -24620,72 +24620,79 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 
-var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "mb-4 text-sm text-gray-600"
-}, " Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one. ", -1
+var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-3xl text-center w-full"
+}, "لطفا کد را وارد کنید", -1
 /* HOISTED */
 );
 
 var _hoisted_2 = {
+  "class": "text-center mt-4"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "mb-4 text-sm text-gray-600"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("b", null, "گذرواژه خودتون رو فراموش کردید؟"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" نگران نباشید. فقط شماره خودتون رو وارد کنید ما یک لینک بازیابی ارسال می کنیم براتون و می تونید گذرواژه جدید انتخاب کنید. ")], -1
+/* HOISTED */
+);
+
+var _hoisted_4 = {
   key: 0,
   "class": "mb-4 font-medium text-sm text-green-600"
 };
-var _hoisted_3 = ["onSubmit"];
-var _hoisted_4 = {
+var _hoisted_5 = ["onSubmit"];
+var _hoisted_6 = {
   "class": "flex items-center justify-end mt-4"
 };
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Email Password Reset Link ");
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Email Password Reset Link ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)($setup["BreezeGuestLayout"], null, {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
+    title: "Forgot Password"
+  }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.name) + " عزیز کد احراز هویت شما به شماره " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(_ctx.phone) + " ارسال شد.", 1
+  /* TEXT */
+  ), _hoisted_3, $props.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.status), 1
+  /* TEXT */
+  )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeValidationErrors"], {
+    "class": "mb-4"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+    onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeLabel"], {
+    "for": "email",
+    value: "Email"
+  }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeInput"], {
+    id: "email",
+    type: "email",
+    "class": "mt-1 block w-full",
+    modelValue: $setup.form.email,
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $setup.form.email = $event;
+    }),
+    required: "",
+    autofocus: "",
+    autocomplete: "username"
+  }, null, 8
+  /* PROPS */
+  , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeButton"], {
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
+      'opacity-25': $setup.form.processing
+    }),
+    disabled: $setup.form.processing
+  }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["Head"], {
-        title: "Forgot Password"
-      }), _hoisted_1, $props.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.status), 1
-      /* TEXT */
-      )) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeValidationErrors"], {
-        "class": "mb-4"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
-        onSubmit: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)($setup.submit, ["prevent"])
-      }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeLabel"], {
-        "for": "email",
-        value: "Email"
-      }), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeInput"], {
-        id: "email",
-        type: "email",
-        "class": "mt-1 block w-full",
-        modelValue: $setup.form.email,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
-          return $setup.form.email = $event;
-        }),
-        required: "",
-        autofocus: "",
-        autocomplete: "username"
-      }, null, 8
-      /* PROPS */
-      , ["modelValue"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["BreezeButton"], {
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)({
-          'opacity-25': $setup.form.processing
-        }),
-        disabled: $setup.form.processing
-      }, {
-        "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-          return [_hoisted_5];
-        }),
-        _: 1
-        /* STABLE */
-
-      }, 8
-      /* PROPS */
-      , ["class", "disabled"])])], 40
-      /* PROPS, HYDRATE_EVENTS */
-      , _hoisted_3)];
+      return [_hoisted_7];
     }),
     _: 1
     /* STABLE */
 
-  });
+  }, 8
+  /* PROPS */
+  , ["class", "disabled"])])], 40
+  /* PROPS, HYDRATE_EVENTS */
+  , _hoisted_5)], 64
+  /* STABLE_FRAGMENT */
+  );
 }
 
 /***/ }),
@@ -28237,13 +28244,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         "img-format": "png",
         "lang-type": "fa",
         url: "/media",
-        noCircle: false,
+        noCircle: true,
         onCropSuccess: $options.cropSuccess,
         modelValue: $data.showUploader,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
           return $data.showUploader = !$data.showUploader;
-        }),
-        withCredentials: true
+        })
       }, null, 8
       /* PROPS */
       , ["headers", "params", "onCropSuccess", "modelValue"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
@@ -28713,7 +28719,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n#app[data-v-30b5ca30] {\n    height: 100vh;\n}\n#main[data-v-30b5ca30] {\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n#app[data-v-30b5ca30] {\r\n    height: 100vh;\n}\n#main[data-v-30b5ca30] {\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

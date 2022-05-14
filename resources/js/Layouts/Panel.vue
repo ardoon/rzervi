@@ -44,10 +44,10 @@ export default {
         this.avatar = this.getAvatar
     }
 }
-if ('serviceWorker' in navigator && 'PushManager' in window) {
-    Notification.requestPermission()
-        .then(result => console.log(result))
-}
+// if ('serviceWorker' in navigator && 'PushManager' in window) {
+//     Notification.requestPermission()
+//         .then(result => console.log(result))
+// }
 </script>
 
 <template>
