@@ -42,11 +42,12 @@ class RequestController extends Controller
 
         $requester = User::where('id', $request->requester)->first();
         $provider = Provider::where('id', $request->responder)->first();
+        $comment = $req->comment ?? 'فاقد';
 
         $sms = new Sms($requester->phone, 'notAccepted', [
             $requester->first_name . ' ' . $requester->last_name,
             $request->date['persian'],
-            $req->comment,
+            $comment,
             $provider->title
         ]);
         $sms->send();
