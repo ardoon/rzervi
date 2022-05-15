@@ -22,7 +22,7 @@ class ProviderController extends Controller
 
     public function create()
     {
-        $users = User::where('provider_id', '!=', NULL)->get();
+        $users = User::where('type', '=', 'provider')->get();
         return Inertia::render('Admin/Provider/Create',['users' => $users]);
     }
 
