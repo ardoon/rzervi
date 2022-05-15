@@ -58,7 +58,7 @@ class RegisteredUserController extends Controller
             'last_name' => $request->last_name,
             'gender' => $request->gender,
             'phone' => $request->phone,
-            'password' => Hash::make($request->password),
+            'password' => $request->password,
         ]);
 
         if ($request->provider_slug != null || $request->provider_slug != '') {
