@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Provider;
 
 use App\Events\BookingNotification;
 use App\Http\Controllers\Controller;
+use App\Models\Provider;
 use App\Models\Request as RequestModel;
 use App\Models\Service;
+use App\Models\User;
+use App\Services\Sms;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -36,6 +39,17 @@ class RequestController extends Controller
         $request->save();
         $request = RequestModel::where('id', $request->id)->with('responder')->first();
         BookingNotification::dispatch($request, 'requester', 'update');
+
+        $requester = User::where('id', $request->requester)->first();
+        $responder = Provider::where('id', '=', $request->responder)->first();
+        $sms = new Sms(auth()->user()->phone, 'notAccept', [
+            $requester->first_name . ' ' . $requester->last_name,
+            $request->date['persian'],
+            $req->comment,
+            $responder->title
+        ]);
+        $sms->send();
+
         return redirect('/provider/requests/');
 
     }
@@ -47,6 +61,14 @@ class RequestController extends Controller
         $request->save();
         $request = RequestModel::where('id', $request->id)->with('responder')->first();
         BookingNotification::dispatch($request, 'requester', 'update');
+
+        $requester = User::where('id', $request->requester)->first();
+        $sms = new Sms(auth()->user()->phone, 'accept', [
+            $requester->first_name . ' ' . $requester->last_name,
+            $request->date['persian']
+        ]);
+        $sms->send();
+
         return redirect('/provider/requests/');
     }
 

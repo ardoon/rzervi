@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Customer;
 use App\Events\BookingNotification;
 use App\Http\Controllers\Controller;
 use App\Models\Provider;
+use App\Models\User;
+use App\Services\Sms;
 use Hekmatinasser\Verta\Facades\Verta;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
@@ -60,6 +62,15 @@ class RequestController extends Controller
         $requestModel = RequestModel::where('id', $requestModel->id)->with('requester')->first();
 
         BookingNotification::dispatch($requestModel, 'responder', 'store');
+
+        $responder = User::where('provider_id', '=', $attributes['server'])->first();
+
+        $sms = new Sms($responder->phone, 'newRequest', [
+            auth()->user()->first_name . ' ' . auth()->user()->last_name,
+            $attributes['date']
+        ]);
+
+        $sms->send();
 
         return redirect('/customer/requests/');
 
