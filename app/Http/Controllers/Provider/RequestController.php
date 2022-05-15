@@ -43,7 +43,7 @@ class RequestController extends Controller
         $requester = User::where('id', $request->requester)->first();
         $provider = Provider::where('id', $request->responder)->first();
 
-        $sms = new Sms($requester->phone, 'notAccept', [
+        $sms = new Sms($requester->phone, 'notAccepted', [
             $requester->first_name . ' ' . $requester->last_name,
             $request->date['persian'],
             $req->comment,
@@ -64,7 +64,6 @@ class RequestController extends Controller
         BookingNotification::dispatch($request, 'requester', 'update');
 
         $requester = User::where('id', $request->requester)->first();
-        $responder = User::where('provider_id', $request->responder)->first();
         $provider = Provider::where('id', $request->responder)->first();
         $sms = new Sms($requester->phone, 'accept', [
             $requester->first_name . ' ' . $requester->last_name,
