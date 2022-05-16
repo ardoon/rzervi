@@ -228,6 +228,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
                 <!--        End of Customers Menu Items        -->
 
 
+
                 <Link :href="route('logout')" as="button" class="flex items-center cursor-pointer text-slate-600 p-2 hover:text-red-400" method="post"
                       preserve-scroll>
                     <svg class="h-6 w-6 ml-2" fill="none" stroke="currentColor" stroke-width="2"

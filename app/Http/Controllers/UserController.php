@@ -13,7 +13,6 @@ class UserController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'gender' => 'required',
-            'email' => 'required',
             'phone' => 'required',
             'password' => '',
             'password_confirmation' => '',
