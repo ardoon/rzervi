@@ -238,7 +238,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
 
         <!--    MAIN CONTENT    -->
         <section id="main"
-                 class="min-h-screen bg-gray-50 w-full md:w-4/6 lg:w-3/4 pt-6 pb-6 px-4 md:pt-24 md:mr-1/3% lg:mr-1/4%">
+                 class="min-h-screen bg-gray-50 w-full md:w-4/6 lg:w-3/4 pt-6 pb-6 px-4 md:pt-10 md:mr-1/3% lg:mr-1/4%">
             <slot/>
         </section>
 

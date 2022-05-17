@@ -50,29 +50,29 @@ export default {
         <h2 class="col-span-6 mb-5 font-semibold">
             مشخصات درخواست دهنده:
         </h2>
-        <div class="col-span-6 lg:col-span-2">
+        <div class="col-span-6 lg:col-span-3 xl:col-span-2">
             درخواست دهنده:
             <Link :href="'/provider/users/' + current_request.requester.id + '/edit'">
                 {{ current_request.requester.first_name }} {{ current_request.requester.last_name }}
             </Link>
         </div>
-        <div class="col-span-6 lg:col-span-2 col-start-1">
+        <div class="col-span-6 lg:col-span-3 xl:col-span-2 col-start-1">
             ایمیل:
             {{ current_request.requester.email }}
         </div>
-        <div class="col-span-6 lg:col-span-2 col-start-1">
+        <div class="col-span-6 lg:col-span-3 xl:col-span-2 col-start-1">
             شماره همراه:
             {{ current_request.requester.phone }}
         </div>
-        <div class="col-span-6 lg:col-span-2 col-start-1">
+        <div class="col-span-6 lg:col-span-3 xl:col-span-2 col-start-1">
             زمان درخواست داده شده:
             {{ current_request.date['persian'] }}
         </div>
-        <div class="col-span-6 lg:col-span-2 col-start-1">
+        <div class="col-span-6 lg:col-span-3 xl:col-span-2 col-start-1">
             وضعیت:
             {{ current_request.status }}
         </div>
-        <div class="col-span-6 lg:col-span-2 col-start-1">
+        <div class="col-span-6 lg:col-span-3 xl:col-span-2 col-start-1">
             یادداشت:
             {{ current_request.requester_comment ?? 'ندارد' }}
         </div>
