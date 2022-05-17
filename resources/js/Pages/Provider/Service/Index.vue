@@ -24,7 +24,7 @@ export default {
             افزودن خدمت
         </Link>
 
-        <section class="mt-5 flex flex-wrap gap-5">
+        <section class="mt-5 flex flex-wrap gap-5 justify-center lg:justify-start">
             <div v-for="service in services" class="bg-gray-50 cursor-pointer hover:shadow-blue-300 w-32 h-32 font-semibold rounded-xl shadow-lg border border-gray-100 flex items-center justify-center text-md text-gray-600">
                 <Link :href="'/provider/services/' + service.id + '/edit'">
                     <p class="text-sm">{{ service.name }}</p>
