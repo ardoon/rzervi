@@ -62,7 +62,7 @@ export default {
     <section class="mt-10 flex flex-wrap gap-y-10 gap-x-4">
 
         <div v-for="request in requests"
-             class="bg-gray-50 text-center hover:shadow-blue-300 w-48 h-44 font-semibold rounded-xl shadow-lg border border-gray-100 text-md text-gray-600">
+             class="bg-gray-50 text-center hover:shadow-blue-300 w-full sm:w-48 h-44 font-semibold rounded-xl shadow-lg border border-gray-100 text-md text-gray-600">
             <Link :href="'/provider/requests/' + request.id">
 
                 <img v-for="img in request.requester.avatar" :src="img.path" alt=""

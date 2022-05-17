@@ -80,12 +80,11 @@ class ServiceController extends Controller
         $attributes = Request::validate([
             'service_id' => 'required',
             'price' => 'nullable',
-            'description' => 'nullable',
         ]);
 
         $provider = auth()->user()->provider;
 
-        $provider->services()->attach($attributes['service_id'], ['price' => $attributes['price'], 'description' => $attributes['description']]);
+        $provider->services()->attach($attributes['service_id'], ['price' => $attributes['price'] ?? null]);
 
         return redirect('/provider/services');
     }
@@ -139,15 +138,13 @@ class ServiceController extends Controller
         $attributes = Request::validate([
             'service_id' => 'required',
             'price' => 'nullable',
-            'description' => 'nullable',
         ]);
 
         $provider = auth()->user()->provider;
 
         // TODO: refactor
         $provider->services->where('id', $service_id)->first()->pivot->service_id = $attributes['service_id'];
-        $provider->services->where('id', $service_id)->first()->pivot->price = $attributes['price'];
-        $provider->services->where('id', $service_id)->first()->pivot->description = $attributes['description'];
+        $provider->services->where('id', $service_id)->first()->pivot->price = $attributes['price'] ?? null;
         $provider->services->where('id', $service_id)->first()->pivot->save();
 
 

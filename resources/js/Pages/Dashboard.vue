@@ -19,7 +19,7 @@ export default {
         <h2 class="text-xl md:text-3xl">داشبورد</h2>
         <p class="mt-3">به پلتفرم آنلاین مدیریت و رزرو نوبت آنلاین خوش آمدید!</p>
 
-        <section class="mt-10 flex flex-wrap gap-10">
+        <section class="mt-10 flex flex-wrap gap-5">
             <div v-if="user.type == 'admin'"
                  class="bg-gray-50 cursor-pointer hover:shadow-blue-300 w-32 h-32 font-semibold rounded-xl shadow-lg border border-gray-100 flex items-center justify-center text-md text-gray-600">
                 <Link :href="route('admin.users')">

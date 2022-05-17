@@ -65,21 +65,44 @@ export default {
         رزرو جدید
     </Link>
 
-    <section class="mt-10 flex flex-wrap gap-y-10 gap-x-4">
+    <section class="mt-5 flex flex-wrap gap-10">
 
         <div v-for="request in requests"
-             class="bg-gray-50 text-center hover:shadow-blue-300 w-40 h-72 font-semibold rounded-xl shadow-lg border border-gray-100 text-md text-gray-600">
+             class="bg-gray-50 flex hover:shadow-blue-300 w-full lg:w-72 h-32 font-semibold rounded-xl shadow-lg border border-gray-100 text-md text-gray-600">
             <img v-for="img in request.responder.avatar" :src="img.path" alt=""
-                 class="h-36 w-36 mx-auto -mt-4 rounded-xl">
+                 class="h-28 w-28 mr-2 mt-2 rounded-xl">
+            <div class="mt-3 pr-3 relative flex-grow">
 
-            <h4 class="font-normal mt-6">{{ request.responder.title }}</h4>
-            <p class="font-normal text-sm mt-2">زمان: {{ request.date['persian'] }}</p>
-            <p class="font-normal text-sm my-2">وضعیت: {{ request.status }}</p>
+                <h4 class="font-normal">{{ request.responder.title }}</h4>
+                <p class="font-normal text-sm mt-2">زمان: {{ request.date['persian'] }}</p>
+                <p class="font-normal text-sm my-2">وضعیت: {{ request.status }}</p>
 
-            <Link v-if="request.status === 'در انتظار تایید'" :href="'/customer/requests/' + request.id + '/edit'" class="text-indigo-600 hover:text-indigo-900 font-normal text-sm" preserve-scroll>ویرایش</Link>
-            <Link v-if="request.status === 'تایید شده' && checkDate(request.date['original'])" :href="'/customer/requests/' + request.id + '/cancel'" method="post" preserve-scroll class="text-red-600 hover:text-red-900 font-normal text-sm">لغو رزرو</Link>
-            <Link v-if="request.status === 'رد شده' || request.status === 'لغو شده'" :href="'/customer/requests/' + request.id"  method="delete" preserve-scroll class="text-red-600 hover:text-red-900 font-normal text-sm">حذف</Link>
+                <div class="lg:absolute lg:left-4 lg:bottom-2 mt-0 sm:mt-2 lg:mt-0 flex">
+                    <Link v-if="request.status === 'در انتظار تایید'" :href="'/customer/requests/' + request.id + '/edit'" class="text-indigo-600 hover:text-indigo-900 font-normal text-sm" preserve-scroll>ویرایش</Link>
+                    <Link v-if="request.status === 'تایید شده' && checkDate(request.date['original'])" :href="'/customer/requests/' + request.id + '/cancel'" method="post" preserve-scroll class="text-red-600 hover:text-red-900 font-normal text-sm">لغو رزرو</Link>
+                    <Link v-if="request.status === 'رد شده' || request.status === 'لغو شده'" :href="'/customer/requests/' + request.id"  method="delete" preserve-scroll class="text-red-600 hover:text-red-900 font-normal text-sm">حذف</Link>
+                </div>
 
+            </div>
+        </div>
+
+        <div v-for="request in requests"
+             class="bg-gray-50 flex hover:shadow-blue-300 w-full lg:w-72 h-32 font-semibold rounded-xl shadow-lg border border-gray-100 text-md text-gray-600">
+            <img v-for="img in request.responder.avatar" :src="img.path" alt=""
+                 class="h-28 w-28 mr-2 mt-2 rounded-xl">
+            <div class="mt-3 pr-3 relative flex-grow">
+
+                <h4 class="font-normal">{{ request.responder.title }}</h4>
+                <p class="font-normal text-sm mt-2">زمان: {{ request.date['persian'] }}</p>
+                <p class="font-normal text-sm my-2">وضعیت: {{ request.status }}</p>
+
+                <div class="lg:absolute lg:left-4 lg:bottom-2 mt-0 sm:mt-2 lg:mt-0 flex">
+                    <Link v-if="request.status === 'در انتظار تایید'" :href="'/customer/requests/' + request.id + '/edit'" class="text-indigo-600 hover:text-indigo-900 font-normal text-sm" preserve-scroll>ویرایش</Link>
+                    <Link v-if="request.status === 'تایید شده' && checkDate(request.date['original'])" :href="'/customer/requests/' + request.id + '/cancel'" method="post" preserve-scroll class="text-red-600 hover:text-red-900 font-normal text-sm">لغو رزرو</Link>
+                    <Link v-if="request.status === 'رد شده' || request.status === 'لغو شده'" :href="'/customer/requests/' + request.id"  method="delete" preserve-scroll class="text-red-600 hover:text-red-900 font-normal text-sm">حذف</Link>
+                </div>
+
+            </div>
         </div>
 
     </section>

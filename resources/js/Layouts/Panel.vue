@@ -63,7 +63,7 @@ export default {
         </svg>
 
         <!--    TOP BAR    -->
-        <header class="bg-gray-100 md:fixed w-full h-16 flex justify-between px-6 items-center border-b">
+        <header class="bg-gray-100 md:relative w-full h-16 flex justify-between px-6 items-center border-b">
             <svg class="h-7 w-7 text-slate-400 cursor-pointer hover:text-indigo-500" fill="none"
                  stroke="currentColor"
                  stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" @click="drawer = !drawer">
@@ -238,7 +238,7 @@ c26 87 50 164 53 171 4 9 -68 12 -337 12 -270 0 -341 3 -337 13 52 134 78 186
 
         <!--    MAIN CONTENT    -->
         <section id="main"
-                 class="min-h-screen bg-gray-50 w-full md:w-4/6 lg:w-3/4 pt-6 pb-6 px-12 md:pt-24 md:mr-1/3% lg:mr-1/4%">
+                 class="min-h-screen bg-gray-50 w-full md:w-4/6 lg:w-3/4 pt-6 pb-6 px-4 md:pt-24 md:mr-1/3% lg:mr-1/4%">
             <slot/>
         </section>
 
