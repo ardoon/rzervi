@@ -9,7 +9,6 @@ const props = defineProps({
 let form = useForm({
     service_id: props.current_service.service_id,
     price: props.current_service.price,
-    description: props.current_service.description,
 });
 
 let submit = () => {
@@ -56,13 +55,6 @@ export default {
                      class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
             </div>
 
-            <div class="w-full">
-                <label for="description" class="text-lg block mb-3">توضیحات</label>
-                <input v-model="form.description" type="text" id="description"
-                       class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300">
-                <div v-if="form.errors.description" v-text="form.errors.description"
-                     class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
-            </div>
             <div class="pt-6 w-full flex">
                 <button type="submit"
                         class="cursor-pointer block text-white py-2 px-6 bg-indigo-500 hover:bg-indigo-600 rounded-xl disabled:bg-slate-300 disabled:cursor-default"

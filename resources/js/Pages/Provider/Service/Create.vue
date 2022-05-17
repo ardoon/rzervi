@@ -8,7 +8,6 @@ defineProps({
 let form = useForm({
     service_id: '-1',
     price: '',
-    description: '',
 });
 
 let submit = () => {
@@ -54,14 +53,6 @@ export default {
                 <input v-model="form.price" type="number" id="price"
                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300">
                 <div v-if="form.errors.price" v-text="form.errors.price"
-                     class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
-            </div>
-
-            <div class="w-full">
-                <label for="description" class="text-lg block mb-3">توضیحات</label>
-                <input v-model="form.description" type="text" id="description"
-                       class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300">
-                <div v-if="form.errors.description" v-text="form.errors.description"
                      class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
             </div>
 

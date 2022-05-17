@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Provider;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Services\Sms;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
 
 class CustomerController extends Controller
@@ -65,7 +63,11 @@ class CustomerController extends Controller
             $sms->send();
         }
 
-        $provider->customers()->attach($user->id);
+        $customer = $provider->customers()->where('user_id', $user->id)->first();
+
+        if (is_null($customer)){
+            $provider->customers()->attach($user->id);
+        }
 
         return redirect('/provider/users');
     }
@@ -109,13 +111,13 @@ class CustomerController extends Controller
 
     public function generate_password($length = 8): string
     {
-        $chars =  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.
+        $chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' .
             '0123456789=!@#$%&*+?';
 
         $str = '';
         $max = strlen($chars) - 1;
 
-        for ($i=0; $i < $length; $i++)
+        for ($i = 0; $i < $length; $i++)
             $str .= $chars[random_int(0, $max)];
 
         return $str;

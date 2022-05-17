@@ -89,9 +89,9 @@ export default {
         </div>
 
         <my-upload :headers="headers"
-                   :height="100"
+                   :height="300"
                    :params="params"
-                   :width="100"
+                   :width="300"
                    field="img"
                    img-format="png"
                    lang-type="fa"

@@ -46,7 +46,7 @@ export default {
         </Link>
     </header>
 
-    <div class="grid grid-cols-6 text-gray-700 text-lg pt-12 space-y-5 space-y-reverse">
+    <div class="grid grid-cols-6 text-gray-700 text-md pt-4 space-y-5 space-y-reverse">
         <h2 class="col-span-6 mb-5 font-semibold">
             مشخصات درخواست دهنده:
         </h2>
@@ -78,19 +78,19 @@ export default {
         </div>
     </div>
 
-    <div class="grid grid-cols-6 text-gray-700 text-lg pt-12 space-y-5 space-y-reverse">
+    <div class="grid grid-cols-6 text-gray-700 text-md pt-2">
         <h2 class="col-span-6 mb-5 font-semibold">
             خدمات درخواست داده شده:
         </h2>
-        <ul class="text-md space-y-2">
+        <ul class="text-md space-y-2 col-span-6">
             <li v-for="(service, index) in services">{{ ++index }} - {{ service.name }}</li>
         </ul>
     </div>
 
-    <hr class="my-5">
+    <hr class="my-3">
 
     <div>
-        <input type="text" id="comment" v-model="responder_comment" placeholder="یادداشت شما" class="rounded-md h-10 w-full lg:w-1/2">
+        <input type="text" id="comment" v-model="responder_comment" placeholder="یادداشت شما" class="rounded-md h-10 w-full lg:w-1/2 border-gray-300">
     </div>
 
     <div class="flex text-lg mt-5">

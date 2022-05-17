@@ -4,7 +4,6 @@ import {Head,Link, useForm} from '@inertiajs/inertia-vue3';
 let form = useForm({
     first_name: '',
     last_name: '',
-    email: '',
     phone: '',
     password: '',
     password_confirmation: '',
@@ -49,17 +48,22 @@ export default {
                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300">
                 <div v-if="form.errors.last_name" v-text="form.errors.last_name" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
             </div>
-            <div class="w-full lg:w-1/2">
-                <label for="email" class="text-lg block mb-3">ایمیل</label>
-                <input v-model="form.email" type="text" id="email"
-                       class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300">
-                <div v-if="form.errors.email" v-text="form.errors.email" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
-            </div>
+
             <div class="w-full lg:w-1/2">
                 <label for="phone" class="text-lg block mb-3">شماره همراه</label>
                 <input v-model="form.phone" type="text" id="phone"
                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300">
                 <div v-if="form.errors.phone" v-text="form.errors.phone" class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <label for="gender" class="text-lg block mb-3">جنسیت</label>
+                <select v-model="form.gender" type="text" id="gender"
+                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300 pt-1">
+                    <option class="text-base" value="male">مرد</option>
+                    <option class="text-base" value="female">زن</option>
+                </select>
+                <div v-if="form.errors.gender" v-text="form.errors.gender"
+                     class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
             </div>
             <div class="w-full lg:w-1/2">
                 <label for="password" class="text-lg block mb-3">گذرواژه</label>
@@ -77,23 +81,14 @@ export default {
                 <label for="type" class="text-lg block mb-3">نوع</label>
                 <select v-model="form.type" type="text" id="type"
                         class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300 pt-1">
-                    <option class="text-base" value="admin">admin</option>
-                    <option class="text-base" value="provider">provider</option>
-                    <option class="text-base" value="customer">customer</option>
+                    <option class="text-base" value="admin">مدیرکل</option>
+                    <option class="text-base" value="provider">سرویس دهنده</option>
+                    <option class="text-base" value="customer">مشتری</option>
                 </select>
                 <div v-if="form.errors.type" v-text="form.errors.type"
                      class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
             </div>
-            <div class="w-full lg:w-1/2">
-                <label for="gender" class="text-lg block mb-3">جنسیت</label>
-                <select v-model="form.gender" type="text" id="gender"
-                        class="rounded-xl h-10 w-full lg:w-5/6 text-lg block bg-gray-50 border-2 border-gray-300 pt-1">
-                    <option class="text-base" value="male">مرد</option>
-                    <option class="text-base" value="female">زن</option>
-                </select>
-                <div v-if="form.errors.gender" v-text="form.errors.gender"
-                     class="text-red-500 text-xs mt-1 w-full lg:w-1/2"></div>
-            </div>
+
             <div class="w-full">
                 <button type="submit" class="cursor-pointer block text-white py-2 bg-indigo-500 hover:bg-indigo-600 px-8 mt-8 rounded-xl disabled:bg-slate-300 disabled:cursor-default" :disabled="form.processing">ثبت
                     کاربر

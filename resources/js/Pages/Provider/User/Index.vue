@@ -22,42 +22,28 @@ export default {
         <Link :href="route('provider.users.create')" class="block mb-3 text-indigo-500 hover:text-indigo-600">
             افزودن مشتری
         </Link>
-        <div class="flex flex-col">
-            <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-                    <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-50">
-                            <tr>
-                                <th scope="col" class="px-6 py-3 text-right text-s font-medium text-gray-500 uppercase tracking-wider">نام</th>
-                                <th scope="col" class="relative px-6 py-3">
-                                    <span class="sr-only">ویرایش</span>
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody class="bg-white divide-y divide-gray-200">
-                            <tr v-for="user in users">
-                                <td class="px-6 py-4 whitespace-nowrap">
-                                    <div class="flex items-center">
-                                        <div class="flex-shrink-0 h-10 w-10" v-for="img in user.avatar">
-                                            <img class="h-10 w-10 rounded-xl" :src="img.path" alt="">
-                                        </div>
-                                        <div class="mr-4">
-                                            <div class="text-sm font-medium text-gray-900">{{ user.first_name }} {{ user.last_name }}</div>
-                                            <div class="text-sm text-gray-500">{{ user.phone }}</div>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                    <Link :href="'/provider/users/' + user.id + '/edit'" class="text-indigo-600 hover:text-indigo-900">ویرایش</Link>
-                                </td>
-                            </tr>
 
-                            <!-- More people... -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+    <section class="mt-5 flex flex-wrap gap-10">
+
+        <Link :href="'/provider/users/' + user.id + '/edit'" v-for="user in users"
+             class="bg-gray-50 flex hover:shadow-blue-300 w-full lg:w-64 h-20 font-semibold rounded-xl shadow-lg border border-gray-100 text-md text-gray-600">
+            <img v-for="img in user.avatar" :src="img.path" alt=""
+                 class="h-14 w-14 mr-3 mt-3 rounded-xl">
+
+            <img v-if="user.avatar.length === 0"
+                 :src="'https://ui-avatars.com/api/?name=' + user.first_name[0] + '&background=random'"
+                 alt=""
+                 class="h-14 w-14 mr-3 mt-3 rounded-xl">
+
+            <div class="mt-3 pr-3 relative flex-grow">
+
+                <h4 class="font-normal">{{ user.first_name }} {{ user.last_name }}</h4>
+
+                <p class="font-normal mt-2">{{ user.phone }}</p>
+
             </div>
-        </div>
+        </Link>
+
+    </section>
+
 </template>

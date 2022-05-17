@@ -84,7 +84,7 @@ export default {
                         :disabled="form.processing">ویرایش
                     مشتری
                 </button>
-                <Link v-if="canEdit" :href="'/provider/users/' + current_user.id" preserve-scroll method="delete" as="button"
+                <Link :href="'/provider/users/' + current_user.id" preserve-scroll method="delete" as="button"
                       class="cursor-pointer block text-red-500 hover:text-white hover:bg-red-600 py-2 px-6 border-2 rounded-xl border-red-500 hover:border-red-600 rounded-xl mr-4">
                     حذف
                 </Link>
