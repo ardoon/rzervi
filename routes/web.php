@@ -32,6 +32,11 @@ Route::get('/', function () {
     return redirect('/login');
 })->middleware(['guest']);
 
+Route::get('/sna/{provider}', function ($provider) {
+    $url = url('/') . '/register?provider=' . $provider;
+    return redirect($url);
+})->middleware(['guest']);
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified', 'verifyPhone'])->name('dashboard');
