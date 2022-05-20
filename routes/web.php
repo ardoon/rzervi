@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProviderController;
+use App\Http\Controllers\Front\ProviderController as FrontProviderController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Auth\VerifyPhoneController;
@@ -32,10 +33,7 @@ Route::get('/', function () {
     return redirect('/login');
 })->middleware(['guest']);
 
-Route::get('/sna/{provider}', function ($provider) {
-    $url = url('/') . '/register?provider=' . $provider;
-    return redirect($url);
-})->middleware(['guest']);
+Route::get('/{provider:slug}', [FrontProviderController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
