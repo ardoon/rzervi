@@ -22,9 +22,9 @@
 </template>
 
 <script>
-import heartIcon from "@/components/svg/heart-icon"
-import locationIcon from "@/components/svg/location-icon"
-import clockIcon from "@/components/svg/clock-icon"
+import heartIcon from "@/Components/svg/heart-icon"
+import locationIcon from "@/Components/svg/location-icon"
+import clockIcon from "@/Components/svg/clock-icon"
 
 export default {
     name: "provider-info",
