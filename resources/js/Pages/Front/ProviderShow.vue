@@ -34,10 +34,10 @@
 
 <script>
 import {Head} from "@inertiajs/inertia-vue3";
-import providerInfo from "@/components/partials/provider-info"
-import providerCallButton from "@/components/partials/provider-call-button"
-import providerAbout from "@/components/partials/provider-about"
-import backButton from "@/components/svg/back-button"
+import providerInfo from "@/Components/partials/provider-info"
+import providerCallButton from "@/Components/partials/provider-call-button"
+import providerAbout from "@/Components/partials/provider-about"
+import backButton from "@/Components/svg/back-button"
 
 
 export default {
