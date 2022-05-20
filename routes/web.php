@@ -33,7 +33,7 @@ Route::get('/', function () {
     return redirect('/login');
 })->middleware(['guest']);
 
-Route::get('/{provider:slug}', [FrontProviderController::class, 'show']);
+Route::get('sine/{provider:slug}', [FrontProviderController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
