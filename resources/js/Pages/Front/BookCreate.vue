@@ -43,7 +43,11 @@
                         type="datetime">
             </DatePicker>
 
-            <input-error :message="form.errors.date" class="mt-2"></input-error>
+            <div v-show="form.errors.date" class="mt-2">
+                <p class="text-sm text-red-600">
+                    {{ form.errors.date }}
+                </p>
+            </div>
 
         </div>
 
@@ -90,7 +94,6 @@
 import {Head, useForm} from "@inertiajs/inertia-vue3";
 import backButton from "@/Components/svg/back-button"
 import DatePicker from 'vue3-persian-datetime-picker'
-import inputError from '@/Components/inputError'
 import clockIcon from "@/Components/svg/clock-icon"
 import {Link} from '@inertiajs/inertia-vue3';
 
@@ -103,7 +106,6 @@ export default {
         Head,
         backButton,
         DatePicker,
-        inputError,
         clockIcon,
         vueLink: Link,
     },
