@@ -6,11 +6,7 @@
             <title>رزرو {{ provider.title }}</title>
         </Head>
 
-        <img
-            :alt="provider.title"
-            class="min-w-full max-h-1/3%"
-            height="300"
-            src="/assets/provider-header-2.jpg">
+        <provider-header image="/assets/provider-header-2.jpg" />
 
         <back-button
             :url="'/providers/' + provider.slug"
@@ -92,6 +88,7 @@
 
 <script>
 import {Head, useForm} from "@inertiajs/inertia-vue3";
+import providerHeader from "@/Components/partials/provider-header"
 import backButton from "@/Components/svg/back-button"
 import DatePicker from 'vue3-persian-datetime-picker'
 import clockIcon from "@/Components/svg/clock-icon"
@@ -104,6 +101,7 @@ export default {
     },
     components: {
         Head,
+        providerHeader,
         backButton,
         DatePicker,
         clockIcon,
