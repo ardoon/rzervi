@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ProviderController;
+use App\Http\Controllers\Front\BookingController;
 use App\Http\Controllers\Front\ProviderController as FrontProviderController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\UserController;
@@ -33,7 +34,16 @@ Route::get('/', function () {
     return redirect('/login');
 })->middleware(['guest']);
 
-Route::get('sine/{provider:slug}', [FrontProviderController::class, 'show']);
+
+
+
+Route::get('providers/{provider:slug}', [FrontProviderController::class, 'show']);
+Route::get('book/{provider:slug}/', [BookingController::class, 'create']);
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -160,5 +170,6 @@ Route::middleware(['auth', 'verified', 'verifyPhone', 'can:customer'])->prefix('
 
 });
 
+Route::get('providers/{server}/get', [RequestController::class, 'get_services']);
 
 require __DIR__ . '/auth.php';

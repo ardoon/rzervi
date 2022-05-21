@@ -1,7 +1,7 @@
 <template>
     <div class="relative bg-white w-11/12 shadow-2xl rounded-r-3xl -mt-12 mr-auto py-6 pr-7 pl-12 text-sm text-gray-700">
 
-        <h1 class="text-2xl font-semibold text-gray-700">{{ providerTitle }}</h1>
+        <h1 class="text-2xl font-semibold">{{ providerTitle }}</h1>
 
         <p class="mt-8 flex items-center">
             <heart-icon class="h-5 w-5 ml-1 text-rose-500"></heart-icon>

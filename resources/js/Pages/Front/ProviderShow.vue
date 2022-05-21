@@ -12,7 +12,7 @@
             src="/assets/provider-header-2.jpg">
 
         <back-button
-            class="absolute right-5 top-5 h-6 w-6"
+            class="absolute left-5 top-5 h-6 w-6"
             url="/providers" />
 
         <provider-info

@@ -166,7 +166,8 @@ return [
         'phone' => 'شماره همراه',
         'password' => 'گذرواژه',
         'password_confirmation' => 'تکرار گذرواژه',
-        'code' => 'کد'
+        'code' => 'کد',
+        'date' => 'زمان'
     ],
 
 ];

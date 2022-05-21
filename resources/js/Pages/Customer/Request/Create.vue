@@ -2,9 +2,11 @@
 import DatePicker from 'vue3-persian-datetime-picker'
 import PanelLayout from '@/Layouts/Panel.vue';
 import {Head, Link, useForm} from '@inertiajs/inertia-vue3';
+import Button from "@/Components/Button";
 
 export default {
     components: {
+        Button,
         DatePicker,
         Head,
         Link
@@ -127,5 +129,35 @@ element {
     border: none !important;
     background: transparent;
 
+}
+
+.vpd-controls svg {
+    display: initial;
+}
+
+.vpd-content {
+    border-radius: 20px;
+}
+
+.vpd-header {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: rgb(17, 24, 39) !important;
+}
+
+.vpd-selected .vpd-day-effect {
+    background-color: rgb(17, 24, 39) !important;
+}
+
+.vpd-actions {
+    text-align: center;
+}
+
+.vpd-actions button {
+    color: rgb(17, 24, 39) !important;
+}
+
+.vpd-month-label > span:hover {
+    border: none !important;
 }
 </style>
