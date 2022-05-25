@@ -10,6 +10,7 @@
     "watch-poll": "mix watch -- --watch-options-poll=1000"
   },
   "dependencies": {
+    "moment-jalaali": "^0.9.6",
     "register-service-worker": "^1.7.2",
     "vue-awesome-countdown": "^1.1.4",
     "vue-image-crop-upload": "^3.0.3",

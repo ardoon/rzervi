@@ -6,7 +6,7 @@
             <title>رزرو {{ provider.title }}</title>
         </Head>
 
-        <provider-header image="/assets/provider-header-2.jpg" />
+        <provider-header image="/assets/provider-header-2.jpg"/>
 
         <back-button
             :url="'/providers/' + provider.slug"
@@ -57,15 +57,17 @@
             </h2>
         </header>
 
-        <div class="w-full lg:w-11/12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-8 pb-10 text-sm">
+        <div
+            class="w-full lg:w-11/12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-8 pb-10 text-sm">
             <div v-for="service in services"
-                 :class="{'ring-2 ring-gray-600 ring-offset-2 bg-gray-600 text-white': form.srvs.includes(service.id),
+                 :class="{'ring-2 ring-neutral-700 ring-offset-2 bg-neutral-700 text-white': form.srvs.includes(service.id),
                           'ring-1 ring-gray-300 ring-offset-2': !form.srvs.includes(service.id) }"
                  class="h-20 bg-gray-200 rounded-xl p-2 text-gray-600 text-center cursor-pointer"
                  @click="add_service(service.id)">
 
-                <p class="text-center mb-2" :class="{'mt-5': !service.pivot.price, 'mt-2': service.pivot.price}">{{ service.name }}</p>
-                <p class="text-center" v-show="service.pivot.price">{{ service.pivot.price }}</p>
+                <p :class="{'mt-5': !service.pivot.price, 'mt-2': service.pivot.price}" class="text-center mb-2">
+                    {{ service.name }}</p>
+                <p v-show="service.pivot.price" class="text-center">{{ service.pivot.price }} تومان</p>
 
             </div>
         </div>
@@ -73,31 +75,34 @@
     </section>
 
     <vue-link
-        :disabled="form.processing"
-        class="w-40 bg-gray-800 text-white disabled:bg-slate-300 disabled:cursor-default
-        block mx-auto py-2 mb-5 text-center rounded-lg shadow-lg"
+        :disabled="form.processing || this.form.srvs.length === 0 || this.form.date === ''"
         as="button"
+        class="w-40 bg-neutral-700 text-white disabled:bg-slate-300 disabled:cursor-default
+        block mx-auto py-2 mb-5 text-center rounded-lg shadow-lg"
+        preserve-scroll
+        type="button"
         @click="submit">
 
-        رزرو کن!
+        تایید
 
     </vue-link>
-
 
 </template>
 
 <script>
-import {Head, useForm} from "@inertiajs/inertia-vue3";
+import {Head, Link, useForm} from "@inertiajs/inertia-vue3";
 import providerHeader from "@/Components/partials/provider-header"
 import backButton from "@/Components/svg/back-button"
 import DatePicker from 'vue3-persian-datetime-picker'
 import clockIcon from "@/Components/svg/clock-icon"
-import {Link} from '@inertiajs/inertia-vue3';
 
 export default {
     name: "Booking",
     props: {
-        provider: Object
+        provider: Object,
+        data: {
+            default: null
+        }
     },
     components: {
         Head,
@@ -111,10 +116,9 @@ export default {
         return {
             services: null,
             form: useForm({
-                server: this.provider.id,
-                date: '',
-                requester_comment: '',
-                srvs: [],
+                server: this.data ? this.data.server : this.provider.id,
+                date: this.data ? this.data.date : '' ,
+                srvs: this.data ? this.data.srvs : [],
             })
         }
     },
@@ -125,14 +129,11 @@ export default {
             nowJalali = nowJalali.replace(/([۰-۹])/g, token => String.fromCharCode(token.charCodeAt(0) - 1728))
             let nowStr = nowJalali + ' ' + nowGregorian.getHours() + ':' + nowGregorian.getMinutes()
             return nowStr
-        }
+        },
     },
     methods: {
         submit() {
-            if (this.form.srvs.length > 0)
-                this.form.post('/customer/requests');
-            else
-                alert('حداقل یک خدمت رو باید انتخاب کنید');
+            this.form.post('/book/checkout');
         },
         checkDate(formatted, dateMoment, checkingFor) {
 
@@ -157,11 +158,12 @@ export default {
         }
     },
     mounted() {
-        this.services =
-            this.form.srvs = []
+        // this.services =
+        //     this.form.srvs = []
         axios
             .get('/providers/' + this.provider.id + '/get')
             .then(response => (this.services = response.data))
+
     }
 }
 

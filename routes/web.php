@@ -36,11 +36,11 @@ Route::get('/', function () {
 
 
 
+Route::get('/providers/{provider:slug}', [FrontProviderController::class, 'show']);
+Route::get('/providers/{server}/get', [RequestController::class, 'get_services']);
 
-Route::get('providers/{provider:slug}', [FrontProviderController::class, 'show']);
-Route::get('book/{provider:slug}/', [BookingController::class, 'create']);
-
-
+Route::get('/book/{provider:slug}', [BookingController::class, 'create']);
+Route::post('/book/checkout', [BookingController::class, 'checkout']);
 
 
 
@@ -170,6 +170,5 @@ Route::middleware(['auth', 'verified', 'verifyPhone', 'can:customer'])->prefix('
 
 });
 
-Route::get('providers/{server}/get', [RequestController::class, 'get_services']);
 
 require __DIR__ . '/auth.php';
