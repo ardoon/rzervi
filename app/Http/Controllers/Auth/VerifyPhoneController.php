@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Log;
 
 class VerifyPhoneController extends Controller
 {
@@ -27,7 +28,7 @@ class VerifyPhoneController extends Controller
 
         }
         
-        var_dump(session('phone_code.code'));
+        Log::alert(session('phone_code.code'));
 
         $time = session('phone_code.time')->diffInSeconds();
 
