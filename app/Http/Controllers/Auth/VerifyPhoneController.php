@@ -26,6 +26,8 @@ class VerifyPhoneController extends Controller
             $sms->send();
 
         }
+        
+        var_dump(session('phone_code.code'));
 
         $time = session('phone_code.time')->diffInSeconds();
 
